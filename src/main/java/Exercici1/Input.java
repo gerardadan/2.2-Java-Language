@@ -33,6 +33,18 @@ public class Input {
         return scanner.next().charAt(0);
     }
 
+    public static String readString(String message)throws Exception{
+        printMessage(message);
+        if(scanner.next().isEmpty())
+            throw new Exception("Empty value");
+        return scanner.nextLine();
+    }
+
+    public static Boolean readBoolean(String message)throws Exception{
+        printMessage(message);
+        return scanner.nextBoolean();
+    }
+
     private static void printMessage(String message) {
         System.out.println(message);
     }

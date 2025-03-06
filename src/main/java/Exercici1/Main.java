@@ -8,7 +8,10 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Input.readByte("Introdueix la teva edat");
+        //Input.readByte("Introdueix la teva edat");
+        Input.readChar("Introdueix una lletra");
+
+        System.out.println("Fin");
     }
 
 }

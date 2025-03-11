@@ -9,20 +9,11 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        readByte("Set byte");
+        Input.readByte("Set byte");
         readChar("Set letter");
 
+        Input.close();
         System.out.println("Fin");
-    }
-
-    public static byte readByte(String message) {
-        try {
-            return Input.readByte(message);
-        } catch (InputMismatchException ime) {
-            System.out.println("Error byte");
-            Input.scanner.nextLine();
-            return readByte(message);
-        }
     }
 
     public static int readInt(String message) {

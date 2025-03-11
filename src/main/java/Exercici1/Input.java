@@ -6,9 +6,18 @@ import java.util.Scanner;
 public class Input {
     static Scanner scanner = new Scanner(System.in);
 
-    public static byte readByte(String message) throws InputMismatchException{
-        printMessage(message);
-        return scanner.nextByte();
+    public static byte readByte(String message) {
+        while (true){
+            try {
+                printMessage(message);
+                byte value = scanner.nextByte();
+                Input.scanner.nextLine();
+                return value;
+            } catch (InputMismatchException e) {
+                System.out.println("Error input it not byte");
+                Input.scanner.nextLine();
+            }
+        }
     }
 
     public static int readInt(String message) throws InputMismatchException{
@@ -35,7 +44,7 @@ public class Input {
 
     public static String readString(String message)throws Exception{
         printMessage(message);
-        if(scanner.next().isEmpty())
+        if(scanner.nextLine().isEmpty())
             throw new Exception("Empty value");
         return scanner.nextLine();
     }
@@ -47,6 +56,13 @@ public class Input {
 
     private static void printMessage(String message) {
         System.out.println(message);
+    }
+
+    public static void close() {
+        if (scanner != null) {
+            scanner.close();
+            printMessage("Scanner closed.");
+        }
     }
 
 }
